@@ -19,11 +19,15 @@ class SpokenWord(Sense):
 
     def __init__(self, written_form:str, origin:int, pos:int, definition:str, \
                  es_in_word:int, e_type_list:list, surface_IPA:str, surface_simple:str):
-        super(().__init__(written_form, origin, pos, definition))
+        super().__init__(written_form, origin, pos, definition)
         self.es_in_word = es_in_word
         self.e_type_list = e_type_list
         self.surface_IPA = surface_IPA
         self.surface_simple = surface_simple
+
+class TestData():
+    def __init__(self):
+        self.four = 4
 
 ## CLASS CREATION METHODS:
 def make_lexical_entry(word,language) -> LexicalEntry:
