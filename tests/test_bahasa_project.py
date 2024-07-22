@@ -25,6 +25,13 @@ def SpokenWordTest():
                              surface_IPA="sɘˈdikit", surface_simple="sɘdikit")
     assert spokenword1.surface_IPA == "sɘˈdikit"
     assert spokenword1.surface_simple == "sɘdikit"
+    assert spokenword1.e_type_list == ["ɘ"]
+    assert spokenword1.es_in_word == 1
+    assert spokenword1.written_form == "sedikit"
+    assert spokenword1.origin == 3
+    assert spokenword1.pos == 2
+    assert spokenword1.definition == "little"
+
 
 
 

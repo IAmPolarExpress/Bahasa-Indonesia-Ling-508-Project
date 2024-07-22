@@ -4,3 +4,4 @@ app/__pycache__
 app/fibonacci.py
 tests/__pycache__
 tests/test_fibonacci.py
+meep/
