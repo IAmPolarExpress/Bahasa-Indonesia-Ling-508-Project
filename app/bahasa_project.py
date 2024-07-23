@@ -11,14 +11,15 @@ class LexicalEntry:
 
     def __init__(self, written_form:str, origin:int):
         """Uses the input to create the chosen LexicalEntry:"""
+        ## Defines the values:
         self.written_form = written_form
-        self.origin = origin
+        self.origin = OriginLanguage[origin]
 
 class Sense(LexicalEntry):
 
     def __init__(self, written_form:str, origin:int, pos:int, definition:str):
         super().__init__(written_form, origin)
-        self.pos = pos
+        self.pos = PartOfSpeech[pos]
         self.definition = definition
 
 class SpokenWord(Sense):
