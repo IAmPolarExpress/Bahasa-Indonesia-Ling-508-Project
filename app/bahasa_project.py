@@ -1,6 +1,12 @@
 ## This is the main document to track data-class creation in my Bahasa Indonesia project:
 
+## Enumerations:
+
+OriginLanguage = ["Dutch","Japanese","English","Malay","Other"]
+PartOfSpeech = ["Noun","Verb","Adjective","Adverb","Preposition","Conjunction","Interjection"]
+
 ## CLASS DEFINITIONS:
+
 class LexicalEntry:
 
     def __init__(self, written_form:str, origin:int):
@@ -25,9 +31,9 @@ class SpokenWord(Sense):
         self.surface_IPA = surface_IPA
         self.surface_simple = surface_simple
 
-class TestData():
-    def __init__(self):
-        self.four = 4
+#class TestData():
+#    def __init__(self):
+#        self.four = 4
 
 ## CLASS CREATION METHODS:
 def make_lexical_entry(word,language) -> LexicalEntry:

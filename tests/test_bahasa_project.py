@@ -18,11 +18,11 @@ def test_make_sense():
     assert sense1.definition == "lawyer"
     assert sense1.written_form == "advocat"
 
-def test_test():
-    testdata = TestData()
-    assert testdata.four == 4
+#def test_test():
+#    testdata = TestData()
+#    assert testdata.four == 4
 
-def spoken_word_test():
+def test_spoken_word():
     """Tests the ability to create a spoken word entry:"""
     spokenword1 = SpokenWord(written_form="sedikit", origin=3, pos=2, definition="little", es_in_word=1, \
                              e_type_list=["ɘ"], surface_IPA="sɘˈdikit", surface_simple="sɘdikit")
