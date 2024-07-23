@@ -32,10 +32,6 @@ class SpokenWord(Sense):
         self.surface_IPA = surface_IPA
         self.surface_simple = surface_simple
 
-#class TestData():
-#    def __init__(self):
-#        self.four = 4
-
 ## CLASS CREATION METHODS:
 def make_lexical_entry(word,language) -> LexicalEntry:
     res = LexicalEntry(written_form=word, origin=language)
