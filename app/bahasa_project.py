@@ -5,14 +5,13 @@ from enum import Enum
 
 ## ENUMERATIONS:
 
-#OriginLanguage = ["Dutch","Japanese","English","Malay","Other"]
 class OriginLanguage(Enum):
     DUTCH = 1
     JAPANESE = 2
     ENGLISH = 3
     MALAY = 4
     OTHER = 5
-#PartOfSpeech = ["Noun","Verb","Adjective","Adverb","Preposition","Conjunction","Interjection"]
+
 class PartOfSpeech(Enum):
     NOUN = 1
     VERB = 2
