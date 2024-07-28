@@ -25,23 +25,24 @@ class PartOfSpeech(Enum):
 
 class LexicalEntry:
 
-    def __init__(self, written_form:str, origin:int):
+    def __init__(self, written_form: str, origin: OriginLanguage):
         """Uses the input to create the chosen LexicalEntry:"""
         ## Defines the values:
         self.written_form = written_form
-        self.origin = OriginLanguage(origin)
+        self.origin = origin
 
 class Sense(LexicalEntry):
 
-    def __init__(self, written_form:str, origin:int, pos:int, definition:str):
+    def __init__(self, written_form: str, origin: OriginLanguage, pos: PartOfSpeech, definition: str):
         super().__init__(written_form, origin)
         self.pos = PartOfSpeech(pos)
         self.definition = definition
 
 class SpokenWord(Sense):
 
-    def __init__(self, written_form:str, origin:int, pos:int, definition:str, \
-                 es_in_word:int, e_type_list:list, surface_IPA:str, surface_simple:str):
+    def __init__(self, written_form: str, origin: OriginLanguage, pos: PartOfSpeech, \
+                 definition: str, es_in_word: int, e_type_list: list, surface_IPA: str, \
+                 surface_simple: str):
         super().__init__(written_form, origin, pos, definition)
         self.es_in_word = es_in_word
         self.e_type_list = e_type_list
