@@ -1,9 +1,26 @@
 ## This is the main document to track data-class creation in my Bahasa Indonesia project:
 
-## Enumerations:
+## IMPORTS:
+from enum import Enum
 
-OriginLanguage = ["Dutch","Japanese","English","Malay","Other"]
-PartOfSpeech = ["Noun","Verb","Adjective","Adverb","Preposition","Conjunction","Interjection"]
+## ENUMERATIONS:
+
+#OriginLanguage = ["Dutch","Japanese","English","Malay","Other"]
+class OriginLanguage(Enum):
+    DUTCH = 1
+    JAPANESE = 2
+    ENGLISH = 3
+    MALAY = 4
+    OTHER = 5
+#PartOfSpeech = ["Noun","Verb","Adjective","Adverb","Preposition","Conjunction","Interjection"]
+class PartOfSpeech(Enum):
+    NOUN = 1
+    VERB = 2
+    ADJECTIVE = 3
+    ADVERB = 4
+    PREPOSITION = 5
+    CONJUNCTION = 6
+    INTERJECTION = 7
 
 ## CLASS DEFINITIONS:
 
@@ -13,13 +30,13 @@ class LexicalEntry:
         """Uses the input to create the chosen LexicalEntry:"""
         ## Defines the values:
         self.written_form = written_form
-        self.origin = OriginLanguage[origin]
+        self.origin = OriginLanguage(origin)
 
 class Sense(LexicalEntry):
 
     def __init__(self, written_form:str, origin:int, pos:int, definition:str):
         super().__init__(written_form, origin)
-        self.pos = PartOfSpeech[pos]
+        self.pos = PartOfSpeech(pos)
         self.definition = definition
 
 class SpokenWord(Sense):
