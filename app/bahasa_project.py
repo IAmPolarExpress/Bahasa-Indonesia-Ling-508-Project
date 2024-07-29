@@ -29,8 +29,8 @@ class Sense:
         self.pos = pos
         self.definition = definition
 
-    def print_sense(self):
-        return "pos = " + str(self.pos) + "\ndefinition = " + str(self.definition)
+    #def print_sense(self):
+    #    return "pos = " + str(self.pos) + "\ndefinition = " + str(self.definition)
 
 class LexicalEntry:
 

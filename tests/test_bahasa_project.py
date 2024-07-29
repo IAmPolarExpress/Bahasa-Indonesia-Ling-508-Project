@@ -25,3 +25,6 @@ def test_lexical_entry():
 
     ## Tests that Sense classes can have their data pulled from a LexicalEntry class:
     #assert le.senses[0] == Sense(pos=PartOfSpeech.PREPOSITION, definition="but")
+    #first_sense = le.senses[0]
+    #test_print_sense = first_sense.print_sense
+    #print(test_print_sense)
