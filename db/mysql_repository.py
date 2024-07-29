@@ -1,9 +1,11 @@
+from db.repository import *
 import mysql.connector
 
 
-class MysqlRepository:
+class MySQLRepository(Repository):
 
     def __init__(self):
+        super().__init__()
         config = {
             'user': 'root',
             'password': 'root',
@@ -11,7 +13,8 @@ class MysqlRepository:
             #'host': 'localhost',
             'port': '3306',  # When you run this on your machine change it to '32000'
             #'port': '32000',
-            'database': 'bahasa'
+            #'database': 'bahasa' # Change this to the main bahasa database before pushing
+            'database': 'demobahasa'
         }
         self.connection = mysql.connector.connect(**config)
         self.cursor = self.connection.cursor()
@@ -20,14 +23,14 @@ class MysqlRepository:
         self.cursor.close()
         self.connection.close()
 
-    def map_sense(self):
+    def _map_sense(self):
         ## Added this since I think sql functions like this will be needed but also
         ## left them unimplemented because I still do not understand how all of the
         ## code for SQL and Python relates to each other.
         raise NotImplementedError
 
-    def map_lexical_entry(self):
+    def _map_lexical_entry(self):
         raise NotImplementedError
 
-    def load_lexicon(self):
+    def _load_lexicon(self):
         raise NotImplementedError
