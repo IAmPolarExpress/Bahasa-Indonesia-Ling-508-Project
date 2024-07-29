@@ -20,5 +20,14 @@ class MysqlRepository:
         self.cursor.close()
         self.connection.close()
 
-    def map_part_of_speech(self):
-        raise NotImplmentedError
+    def map_sense(self):
+        ## Added this since I think sql functions like this will be needed but also
+        ## left them unimplemented because I still do not understand how all of the
+        ## code for SQL and Python relates to each other.
+        raise NotImplementedError
+
+    def map_lexical_entry(self):
+        raise NotImplementedError
+
+    def load_lexicon(self):
+        raise NotImplementedError
