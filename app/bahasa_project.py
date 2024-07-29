@@ -29,6 +29,9 @@ class Sense:
         self.pos = pos
         self.definition = definition
 
+    def print_sense(self):
+        return "pos = " + str(self.pos) + "\ndefinition = " + str(self.definition)
+
 class LexicalEntry:
 
     def __init__(self, written_form: str, origin: OriginLanguage, surface_IPA: str, \
