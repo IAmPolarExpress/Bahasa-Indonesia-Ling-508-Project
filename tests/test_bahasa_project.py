@@ -1,45 +1,27 @@
 from app.bahasa_project import *
 import pytest
 
-
+def test_easy_wins():
+    """Gives a motivational boost. If this fails, something is seriously wrong:"""
+    print("\n\n\nYou got this!!!\n         :D\n")
+    pass
 
 def test_make_sense():
     """Creates a Sense class and confirms its creation:"""
     sense1 = Sense(pos=PartOfSpeech.NOUN, definition="lawyer")
-    #sense1 = Sense(written_form="advocat", origin=OriginLanguage.DUTCH, \
-    #               pos=PartOfSpeech.NOUN, \
-    #               definition="lawyer")
     assert sense1.pos == PartOfSpeech.NOUN
     assert sense1.definition == "lawyer"
-    #assert sense1.written_form == "advocat"
 
 def test_lexical_entry():
     """Tests the creation of the LexicalEntry class:"""
     le = LexicalEntry(written_form="untuk", origin=OriginLanguage.MALAY, \
-                      senses=[Sense(pos=PartOfSpeech.PREPOSITION, definition="but")])
+                      surface_IPA="ˈuntuk", \
+                      senses=[Sense(pos=PartOfSpeech.PREPOSITION, definition="but")], \
+                      surface_simple="untuk")
     assert le.written_form == "untuk"
     assert le.origin == OriginLanguage.MALAY
+    assert le.surface_IPA == "ˈuntuk"
+    assert le.surface_simple == "untuk"
 
-    le2 = LexicalEntry(written_form="emoji", origin=OriginLanguage.JAPANESE, \
-                       senses=[Sense(pos=PartOfSpeech.NOUN, definition="emoji")])
-    assert le2.written_form == "emoji"
-    assert le2.origin == OriginLanguage.JAPANESE
-
-def test_lexical_entry_sense():
-    pass
-
-#def test_spoken_word():
-#    """Tests the ability to create a spoken word entry:"""
-#    spokenword1 = SpokenWord(written_form="sedikit", origin=OriginLanguage.MALAY, \
-#                             pos=PartOfSpeech.ADJECTIVE, \
-#                             definition="little", es_in_word=1, \
-#                             e_type_list=["ɘ"], surface_IPA="sɘˈdikit", \
-#                             surface_simple="sɘdikit")
-#    assert spokenword1.surface_IPA == "sɘˈdikit"
-#    assert spokenword1.surface_simple == "sɘdikit"
-#    assert spokenword1.e_type_list == ["ɘ"]
-#    assert spokenword1.es_in_word == 1
-#    assert spokenword1.written_form == "sedikit"
-#    assert spokenword1.origin == OriginLanguage.MALAY
-#    assert spokenword1.pos == PartOfSpeech.ADJECTIVE
-#    assert spokenword1.definition == "little"
+    ## Tests that Sense classes can have their data pulled from a LexicalEntry class:
+    #assert le.senses[0] == Sense(pos=PartOfSpeech.PREPOSITION, definition="but")

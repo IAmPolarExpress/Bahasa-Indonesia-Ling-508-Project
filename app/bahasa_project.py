@@ -23,33 +23,35 @@ class PartOfSpeech(Enum):
 
 ## CLASS DEFINITIONS:
 
+class Sense:
+
+    def __init__(self, pos: PartOfSpeech, definition: str):
+        self.pos = pos
+        self.definition = definition
+
 class LexicalEntry:
 
-    def __init__(self, written_form: str, origin: OriginLanguage):
-        """Uses the input to create the chosen LexicalEntry:"""
+    def __init__(self, written_form: str, origin: OriginLanguage, surface_IPA: str, \
+                 senses: [Sense]=[], surface_simple: str="NULL"):
+        """Uses the input to create the chosen LexicalEntry:
+        
+        NOTE: If 'surface_simple' is unknown at the outset, it is set to 'NULL'
+        by default so that the simple output can be determined using the
+        'get_surface_simple()' function below."""
         ## Defines the values:
         self.written_form = written_form
         self.origin = origin
-
-class Sense(LexicalEntry):
-
-    def __init__(self, written_form: str, origin: OriginLanguage, pos: PartOfSpeech, definition: str):
-        super().__init__(written_form, origin)
-        self.pos = PartOfSpeech(pos)
-        self.definition = definition
-
-class SpokenWord(Sense):
-
-    def __init__(self, written_form: str, origin: OriginLanguage, pos: PartOfSpeech, \
-                 definition: str, es_in_word: int, e_type_list: list, surface_IPA: str, \
-                 surface_simple: str):
-        super().__init__(written_form, origin, pos, definition)
-        self.es_in_word = es_in_word
-        self.e_type_list = e_type_list
+        self.senses = senses
         self.surface_IPA = surface_IPA
-        self.surface_simple = surface_simple
+        if surface_simple != "NULL":
+            self.surface_simple = surface_simple
+        else:
+            self.surface_simple = self.get_surface_simple()
 
-## CLASS CREATION METHODS:
-def make_lexical_entry(word,language) -> LexicalEntry:
-    res = LexicalEntry(written_form=word, origin=language)
-    return res
+    def get_surface_simple(self):
+        """Uses the IPA to check for present 'e' or 'ə' characters and overwrites the
+        'e's in the word which should be schwas to the correct 'ə' symbol.  This is
+        designed to help non-IPA users see pronunciation in a simpler way:
+
+        NOTICE: NOT YET IMPLEMENTED"""
+        raise NotImplementedError
