@@ -33,9 +33,9 @@ def test_lexical_entry():
 def test_SQL_import():
     """Tests if data can be properly pulled from the database that SQL
     initialized:"""
-    ## Uses 'load_lexicon' to load the lexicon from the SQL server:
+    ## Uses '_load_lexicon' to load the lexicon from the SQL server:
     repo = MySQLRepository()
-    test_lexicon = repo.load_lexicon()
+    test_lexicon = repo._load_lexicon()
 
     ## Asserts that there are more than zero entries in the lexicon:
     assert len(test_lexicon) >= 1
