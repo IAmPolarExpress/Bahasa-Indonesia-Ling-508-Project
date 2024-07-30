@@ -4,16 +4,16 @@ use demobahasa;
 
 CREATE TABLE sense (
     id INT NOT NULL AUTO_INCREMENT,
-    pos VARCHAR(30),
+    pos ENUM('NOUN','VERB','ADJECTIVE','ADVERB','PREPOSITION','CONJUNCTION','INTERJECTION'),
     definition VARCHAR(30)
 );
 
 CREATE TABLE lexicon (
     id INT NOT NULL AUTO_INCREMENT,
     written_form NVARCHAR(30),
-    origin NVARCHAR(30),
+    origin ENUM('DUTCH','JAPANESE','ENGLISH','MALAY','OTHER'),
     surface_ipa NVARCHAR(50),
-    senses ????????,
+    senses VARCHAR(200),
     surface_simple NVARCHAR(30)
 );
 
