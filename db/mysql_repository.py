@@ -9,10 +9,10 @@ class MySQLRepository(Repository):
         config = {
             'user': 'root',
             'password': 'root',
-            #'host': 'db',  # When you run this on your machine change it to 'localhost'
-            'host': 'localhost',
-            #'port': '3306',  # When you run this on your machine change it to '32000'
-            'port': '32000',
+            'host': 'db',  # When you run this on your machine change it to 'localhost'
+            #'host': 'localhost',
+            'port': '3306',  # When you run this on your machine change it to '32000'
+            #'port': '32000',
             #'database': 'bahasa' # Change this to the main bahasa database before pushing
             'database': 'demobahasa'
         }
