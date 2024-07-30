@@ -9,10 +9,10 @@ class MySQLRepository(Repository):
         config = {
             'user': 'root',
             'password': 'root',
-            'host': 'db',  # When you run this on your machine change it to 'localhost'
-            #'host': 'localhost',
-            'port': '3306',  # When you run this on your machine change it to '32000'
-            #'port': '32000',
+            #'host': 'db',  # When you run this on your machine change it to 'localhost'
+            'host': 'localhost',
+            #'port': '3306',  # When you run this on your machine change it to '32000'
+            'port': '32000',
             #'database': 'bahasa' # Change this to the main bahasa database before pushing
             'database': 'demobahasa'
         }
@@ -32,5 +32,24 @@ class MySQLRepository(Repository):
     def _map_lexical_entry(self):
         raise NotImplementedError
 
-    def _load_lexicon(self):
+    def _mapper(self, entry: dict) -> LexicalEntry:
+        """Takes a dict of data and turns it into a LexicalEntry class,
+        formulated properly."""
         raise NotImplementedError
+
+
+    def _load_lexicon(self) -> list[LexicalEntry]:
+        """Pulls data from the SQL database and converts it to a list of
+        LexicalEntry classes by making requests to the 'mapper()' method:"""
+        sql = 'SELECT * FROM lexicon'
+        self.cursor.execute(sql)
+        entries = [{'id': id,
+                    'written_form': form,
+                    'origin': origin,
+                    'surface_IPA': surface_ipa,
+                    'senses': senses,
+                    'surface_simple': surface_simple
+                    } for (id, form,   origin, surface_ipa, senses, \
+                           surface_simple) in self.cursor]
+        lexicon = [self._mapper(entry) for entry in entries]
+        return lexicon
