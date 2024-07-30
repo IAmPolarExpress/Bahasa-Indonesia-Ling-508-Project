@@ -5,7 +5,7 @@ import abc
 
 ## Imports the LexicalEntry class from my main thread.  I may eventually move
 ## these class definitions elsewhere, but for now this is where it is at:
-from app.bahasa_project import LexicalEntry
+from app.bahasa_project import *
 
 
 ### REPOSITORY ABSTRACT CLASS:

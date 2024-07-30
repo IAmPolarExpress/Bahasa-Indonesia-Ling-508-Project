@@ -1,4 +1,5 @@
-from app.bahasa_project import *
+#from app.bahasa_project import * # This is now imported already from db.mysql_repository.py
+from db.mysql_repository import *
 import pytest
 
 def test_easy_wins():
@@ -28,3 +29,21 @@ def test_lexical_entry():
     #first_sense = le.senses[0]
     #test_print_sense = first_sense.print_sense
     #print(test_print_sense)
+
+def test_SQL_import():
+    """Tests if data can be properly pulled from the database that SQL
+    initialized:"""
+    ## Uses 'load_lexicon' to load the lexicon from the SQL server:
+    repo = MySQLRepository()
+    test_lexicon = repo.load_lexicon()
+
+    ## Asserts that there are more than zero entries in the lexicon:
+    assert len(test_lexicon) >= 1
+
+    ## Asserts that the lexical entry for "laki-laki" is present:
+    laki_laki_test = LexicalEntry(written_form="laki-laki", \
+                                  origin=OriginLanguage.MALAY, \
+                                  surface_IPA="ˈlakilaki", \
+                                  senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
+                                  surface_simple="laki-laki")
+    assert laki_laki_test in test_lexicon
