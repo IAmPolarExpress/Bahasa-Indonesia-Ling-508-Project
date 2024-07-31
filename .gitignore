@@ -6,3 +6,4 @@ db/__pycache__
 tests/__pycache__
 tests/test_fibonacci.py
 meep/
+/venv39/

@@ -13,7 +13,7 @@ from app.bahasa_project import *
 class Repository(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def _load_lexicon(self) -> list[LexicalEntry]:
+    def load_lexicon(self) -> list[LexicalEntry]:
         """All repositories must create a load_lexicon method overwriting this
         one in order to function:"""
         raise NotImplementedError

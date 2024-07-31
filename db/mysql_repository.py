@@ -65,12 +65,12 @@ class MySQLRepository(Repository):
 
 
 
-    def _load_lexicon(self) -> list[LexicalEntry]:
+    def load_lexicon(self) -> list[LexicalEntry]:
         """Pulls data from the SQL database and converts it to a list of
         LexicalEntry classes by making requests to the 'mapper()' method:"""
-        sql = 'SELECT * FROM lexicon'
+        sql = 'SELECT * FROM word_info'
         self.cursor.execute(sql)
-        entries = [{'id': id,
+        '''entries = [{'id': id,
                     'written_form': form,
                     'origin': origin,
                     'surface_IPA': surface_ipa,
@@ -79,5 +79,6 @@ class MySQLRepository(Repository):
                     'surface_simple': surface_simple
                     } for (id, form, origin, surface_ipa, senses, \
                            surface_simple) in self.cursor]
-        lexicon = [self._lexicon_mapper(entry) for entry in entries]
+        lexicon = [self._lexicon_mapper(entry) for entry in entries]'''
+        lexicon = self.cursor.fetchall()
         return lexicon

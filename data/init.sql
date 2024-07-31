@@ -1,33 +1,19 @@
-CREATE DATABASE demobahasa;
-ALTER DATABASE demobahasa CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-use demobahasa;
+CREATE DATABASE dictionary;
+ALTER DATABASE dictionary CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+use dictionary;
 
-CREATE TABLE senses (
-    id INT NOT NULL AUTO_INCREMENT,
-    pos ENUM('NOUN','VERB','ADJECTIVE','ADVERB','PREPOSITION','CONJUNCTION','INTERJECTION'),
-    definition VARCHAR(30)
-);
+CREATE TABLE word_info (
+    english_form VARCHAR(30),
+    romanised_hindi NVARCHAR(30),
+    devanagari NVARCHAR(30),
+    pos VARCHAR(30),
+    gender VARCHAR(30),
+    definition VARCHAR(300));
 
-CREATE TABLE lexicon (
-    id INT NOT NULL AUTO_INCREMENT,
-    written_form NVARCHAR(30),
-    origin ENUM('DUTCH','JAPANESE','ENGLISH','MALAY','OTHER'),
-    surface_ipa NVARCHAR(50),
-    senses VARCHAR(200),
-    surface_simple NVARCHAR(30)
-);
-
-INSERT INTO senses
-    (pos, definition)
+INSERT INTO word_info
+(english_form, romanised_hindi, devanagari, pos, gender, definition)
 VALUES
-    ('ADJECTIVE','male'),
-    ('PREPOSITION','but'),
-    ('VERB','study');
-
-INSERT INTO lexicon
-    (written_form, origin, surface_ipa, senses, surface_simple)
-VALUES
-    ('laki-laki', 'MALAY', 'ˈlakilaki', 1, 'laki-laki'),
-    ('untuk', 'MALAY', 'ˈuntuk', 2, 'untuk'),
-    ('belajar', 'MALAY', 'bəˈladʒar', 3, 'bəlajar')
-
+('book', N'kitaab', N'किताब', 'noun', 'f','physical object consisting of a number of pages bound together'),
+('tea',N'cāya',N'चाय','noun','f','a beverage made by steeping tea leaves in water'),
+('water',N'pānī',N'पानी','noun','m','a liquid that descends from the clouds as rain, forms streams, lakes, and rivers'),
+('you',N'tuma',N'तुम','pronoun',NULL,'the one being addressed, pronoun of the second person singular')
