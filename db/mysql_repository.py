@@ -9,10 +9,10 @@ class MySQLRepository(Repository):
         config = {
             'user': 'root',
             'password': 'root',
-            'host': 'db',  # When you run this on your machine change it to 'localhost'
-            #'host': 'localhost',
-            'port': '3306',  # When you run this on your machine change it to '32000'
-            #'port': '32000',
+            #'host': 'db',  # When you run this on your machine change it to 'localhost'
+            'host': 'localhost',
+            #'port': '3306',  # When you run this on your machine change it to '32000'
+            'port': '32000',
             #'database': 'bahasa' # Change this to the main bahasa database before pushing
             'database': 'demobahasa'
         }
@@ -24,21 +24,42 @@ class MySQLRepository(Repository):
         self.connection.close()
 
     def _map_sense(self, sense_number):
-        ## Added this since I think sql functions like this will be needed but also
-        ## left them unimplemented because I still do not understand how all of the
-        ## code for SQL and Python relates to each other.
-        """Pulls a sense from the SQL table based on its number:"""
+        """Pulls a sense from the SQL table based on its number
+        and creates a sense object with it:"""
+        sql = ("SELECT * FROM senses "
+               "WHERE id = " + str(sense_number) + " "
+               ";"
+               )
+        self.cursor.execute(sql)
+        returned_sense = {
+            'id': id,
+            'pos': pos,
+            'definition': definition
+        }
+        return returned_sense
 
     def _map_lexical_entry(self):
+        ## Tbh I will probs remove this soon as it has pretty much been
+        ## superceded by the '_lexicon_mapper' method below
         raise NotImplementedError
 
     def _lexicon_mapper(self, entry: dict) -> LexicalEntry:
         """Takes a dict of data and turns it into a LexicalEntry class,
         formulated properly:"""
+        ## First matches up and appends any senses as Sense objects
+        ## to the 'self.senses_list' list:
+        senses_list = []
+        for sense in entry[senses]:
+            new_sense = self._map_sense(sense)
+            senses_list += new_sense
+
+        ## Makes the full LexicalEntry object (where the 'senses' list is
+        ## already added:
         lexical_entry = LexicalEntry(written_form = entry[written_form],
                                      origin = entry[origin],
                                      surface_IPA = entry[surface_IPA],
-                                     senses = [self._map_sense(sense_number) for sense_number in entry(senses)],
+                                     #senses = [self._map_sense(sense_number) for sense_number in entry(senses)],
+                                     senses = senses_list,
                                      surface_simple = entry[surface_simple])
         return lexical_entry
 
