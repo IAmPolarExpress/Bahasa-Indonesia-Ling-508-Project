@@ -1,5 +1,6 @@
 .idea/
 venv/
+venv310/
 app/__pycache__
 app/fibonacci.py
 db/__pycache__

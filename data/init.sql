@@ -5,7 +5,8 @@ use demobahasa;
 CREATE TABLE senses (
     id INT NOT NULL AUTO_INCREMENT,
     pos ENUM('NOUN','VERB','ADJECTIVE','ADVERB','PREPOSITION','CONJUNCTION','INTERJECTION'),
-    definition VARCHAR(30)
+    definition VARCHAR(30),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE lexicon (
@@ -14,7 +15,8 @@ CREATE TABLE lexicon (
     origin ENUM('DUTCH','JAPANESE','ENGLISH','MALAY','OTHER'),
     surface_ipa NVARCHAR(50),
     senses VARCHAR(200),
-    surface_simple NVARCHAR(30)
+    surface_simple NVARCHAR(30),
+    PRIMARY KEY (id)
 );
 
 INSERT INTO senses
@@ -29,5 +31,5 @@ INSERT INTO lexicon
 VALUES
     ('laki-laki', 'MALAY', 'ˈlakilaki', 1, 'laki-laki'),
     ('untuk', 'MALAY', 'ˈuntuk', 2, 'untuk'),
-    ('belajar', 'MALAY', 'bəˈladʒar', 3, 'bəlajar')
+    ('belajar', 'MALAY', 'bəˈladʒar', 3, 'bəlajar');
 
