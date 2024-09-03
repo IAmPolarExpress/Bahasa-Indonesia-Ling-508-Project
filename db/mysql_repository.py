@@ -26,9 +26,8 @@ class MySQLRepository(Repository):
     def _map_sense(self, sense_number):
         """Pulls a sense from the SQL table based on its number
         and creates a sense object with it:"""
-        sql = ("SELECT * FROM senses "
-               "WHERE id = " + str(sense_number) + " "
-               ";"
+        sql = (f"SELECT * FROM senses "
+               f"WHERE id = {sense_number};"
                )
         self.cursor.execute(sql)
         returned_sense = {
