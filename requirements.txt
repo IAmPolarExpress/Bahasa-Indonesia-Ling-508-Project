@@ -1,2 +1,2 @@
 pytest
-mysql_connector_python
+mysql-connector-python
