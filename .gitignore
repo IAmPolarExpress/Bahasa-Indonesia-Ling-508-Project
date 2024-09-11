@@ -2,8 +2,5 @@
 venv/
 venv310/
 app/__pycache__
-app/fibonacci.py
 db/__pycache__
 tests/__pycache__
-tests/test_fibonacci.py
-meep/
