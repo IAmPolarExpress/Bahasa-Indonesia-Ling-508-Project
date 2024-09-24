@@ -39,6 +39,8 @@ def test_SQL_import():
 
     ## Asserts that there are more than zero entries in the lexicon:
     assert len(test_lexicon) >= 1
+    if len(test_lexicon) >= 1:
+        print("\n\nThere is more than one line in 'test_lexicon'!\n     This is good!\n\n")
 
     ## Asserts that the lexical entry for "laki-laki" is present:
     laki_laki_test = LexicalEntry(written_form="laki-laki", \

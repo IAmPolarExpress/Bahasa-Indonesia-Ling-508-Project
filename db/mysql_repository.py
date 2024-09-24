@@ -47,10 +47,11 @@ class MySQLRepository(Repository):
         formulated properly:"""
         ## First matches up and appends any senses as Sense objects
         ## to the 'self.senses_list' list:
-        senses_list = []
-        for sense in entry[senses]:
+        self.senses_list = []
+        #for sense in entry[senses]:
+        for sense in entry["senses"]:
             new_sense = self._map_sense(sense)
-            senses_list += new_sense
+            self.senses_list += new_sense
 
         ## Makes the full LexicalEntry object (where the 'senses' list is
         ## already added:
@@ -58,7 +59,7 @@ class MySQLRepository(Repository):
                                      origin = entry[origin],
                                      surface_IPA = entry[surface_IPA],
                                      #senses = [self._map_sense(sense_number) for sense_number in entry(senses)],
-                                     senses = senses_list,
+                                     senses = self.senses_list,
                                      surface_simple = entry[surface_simple])
         return lexical_entry
 

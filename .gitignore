@@ -1,6 +1,7 @@
 .idea/
 venv/
 venv310/
+.venvgold/
 app/__pycache__
 db/__pycache__
 tests/__pycache__
