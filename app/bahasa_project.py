@@ -34,7 +34,7 @@ class Sense:
 
 class LexicalEntry:
 
-    def __init__(self, written_form: str, origin: OriginLanguage, surface_IPA: str, \
+    def __init__(self, id: str, written_form: str, origin: OriginLanguage, surface_IPA: str, \
                  senses: [Sense]=[], surface_simple: str="NULL"):
         """Uses the input to create the chosen LexicalEntry:
         
@@ -42,6 +42,7 @@ class LexicalEntry:
         by default so that the simple output can be determined using the
         'get_surface_simple()' function below."""
         ## Defines the values:
+        self.id = id
         self.written_form = written_form
         self.origin = origin
         self.senses = senses
