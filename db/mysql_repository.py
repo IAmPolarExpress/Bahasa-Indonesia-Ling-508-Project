@@ -29,12 +29,21 @@ class MySQLRepository(Repository):
         sql = (f"SELECT * FROM senses "
                f"WHERE id = {sense_number};"
                )
-        self.cursor.execute(sql)
-        returned_sense = {
-            'id': id,
-            'pos': pos,
-            'definition': definition
-        }
+
+        ## Assigns the result of the queried SQL to "returned_sql":
+        returned_sql = self.cursor.execute(sql)
+
+        ## Creates a Sense object from the "returned_sql" as can be seen in the tests:
+
+        ## (Note to self: For now perhaps I could have it always return the proper
+        ## returned result for the test and finish the lexicon function first.)
+        returned_sense = Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")
+
+        #returned_sense = {
+        #    'id': id,
+        #    'pos': pos,
+        #    'definition': definition
+        #}
         return returned_sense
 
     def _map_lexical_entry(self):
