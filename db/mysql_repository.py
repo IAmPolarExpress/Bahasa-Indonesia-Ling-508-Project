@@ -72,13 +72,14 @@ class MySQLRepository(Repository):
         lexical_entry = LexicalEntry(id=0, \
                                   written_form="laki-laki", \
                                   origin=OriginLanguage.MALAY, \
-                                  surface_IPA="ˈlakilaki", \
+                                     #surface_IPA="debugtest", \
+                                     surface_IPA="ˈlakilaki", \
                                   senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
                                   surface_simple="laki-laki")
 
         ## Makes the full LexicalEntry object (where the 'senses' list is
         ## already added:
-        #lexical_entry = LexicalEntry(id = entry['id']
+        #lexical_entry = LexicalEntry(id = entry['id'],
         #                             written_form = entry['written_form'],
         #                             origin = entry['origin'],
         #                             surface_IPA = entry['surface_IPA'],
@@ -104,5 +105,8 @@ class MySQLRepository(Repository):
                     'surface_simple': surface_simple
                     } for (id, form, origin, surface_ipa, senses, \
                            surface_simple) in self.cursor]
+        ## Debug:
+        for entry in entries:
+            print("Entry: " + str(entry))
         lexicon = [self._lexicon_mapper(entry) for entry in entries]
         return lexicon

@@ -49,6 +49,7 @@ def test_SQL_import():
                                   written_form="laki-laki", \
                                   origin=OriginLanguage.MALAY, \
                                   surface_IPA="ˈlakilaki", \
+                                  #surface_IPA="debugtest", \
                                   senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
                                   surface_simple="laki-laki")
     assert laki_laki_test in test_lexicon
