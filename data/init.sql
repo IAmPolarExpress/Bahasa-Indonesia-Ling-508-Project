@@ -29,7 +29,7 @@ VALUES
 INSERT INTO lexicon
     (written_form, origin, surface_ipa, senses, surface_simple)
 VALUES
-    ('laki-laki', 'MALAY', 'ˈlakilaki', 1, 'laki-laki'),
-    ('untuk', 'MALAY', 'ˈuntuk', 2, 'untuk'),
-    ('belajar', 'MALAY', 'bəˈladʒar', 3, 'bəlajar');
+    ('laki-laki', 'MALAY', N'ˈlakilaki', 1, 'laki-laki'),
+    ('untuk', 'MALAY', N'ˈuntuk', 2, 'untuk'),
+    ('belajar', 'MALAY', N'bəˈladʒar', 3, 'bəlajar');
 
