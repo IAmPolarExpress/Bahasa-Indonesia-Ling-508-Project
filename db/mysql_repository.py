@@ -69,24 +69,24 @@ class MySQLRepository(Repository):
         #    self.senses_list += new_sense
 
         ## Test output:
-        lexical_entry = LexicalEntry(id=0, \
-                                  written_form="laki-laki", \
-                                  origin=OriginLanguage.MALAY, \
-                                     #surface_IPA="debugtest", \
-                                     surface_IPA="ˈlakilaki", \
-                                  senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
-                                  surface_simple="laki-laki")
+        #lexical_entry = LexicalEntry(id=0, \
+        #                          written_form="laki-laki", \
+        #                          origin=OriginLanguage.MALAY, \
+        #                             surface_IPA="test", \
+        #                             #surface_IPA="ˈlakilaki", \
+        #                          senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
+        #                          surface_simple="laki-laki")
 
         ## Makes the full LexicalEntry object (where the 'senses' list is
         ## already added:
-        #lexical_entry = LexicalEntry(id = entry['id'],
-        #                             written_form = entry['written_form'],
-        #                             origin = entry['origin'],
-        #                             surface_IPA = entry['surface_IPA'],
-        #                             #senses = [self._map_sense(sense_number) for sense_number in entry(senses)],
-        #                             #senses = self.senses_list,
-        #                             senses = [Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")],
-        #                             surface_simple = entry['surface_simple'])
+        lexical_entry = LexicalEntry(id = entry['id'],
+                                     written_form = entry['written_form'],
+                                     origin = entry['origin'],
+                                     surface_IPA = entry['surface_IPA'],
+                                     #senses = [self._map_sense(sense_number) for sense_number in entry(senses)],
+                                     #senses = self.senses_list,
+                                     senses = [Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")],
+                                     surface_simple = entry['surface_simple'])
         return lexical_entry
 
 
