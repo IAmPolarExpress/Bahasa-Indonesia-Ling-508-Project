@@ -32,4 +32,7 @@ VALUES
     ('laki-laki', 'MALAY', N'test', 1, N'test2'),
     ('untuk', 'MALAY', N'test', 2, N'test2'),
     ('belajar', 'MALAY', N'test', 3, N'test2');
+    /*('laki-laki', 'MALAY', N'ˈlakilaki', 1, N'laki-laki'),*/
+    /*('untuk', 'MALAY', N'ˈuntuk', 2, N'untuk'),*/
+    /*('belajar', 'MALAY', N'bəˈladʒar', 3, N'bəlajar');*/
 
