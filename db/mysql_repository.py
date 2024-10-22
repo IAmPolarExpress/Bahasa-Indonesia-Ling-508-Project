@@ -81,7 +81,7 @@ class MySQLRepository(Repository):
         ## already added:
         lexical_entry = LexicalEntry(id = entry['id'],
                                      written_form = entry['written_form'],
-                                     origin = OriginLanguage[(entry['origin'])],
+                                     origin = OriginLanguage[entry['origin']],
                                      #origin = OriginLanguage(4),
                                      surface_IPA = entry['surface_IPA'],
                                      #senses = [self._map_sense(sense_number) for sense_number in entry(senses)],
@@ -106,8 +106,11 @@ class MySQLRepository(Repository):
                     'surface_simple': surface_simple
                     } for (id, form, origin, surface_ipa, senses, \
                            surface_simple) in self.cursor]
-        ## Debug:
+        ## DEBUG - START:
+        print("\n")
         for entry in entries:
             print("Entry: " + str(entry))
+        ## DEBUG - END
+
         lexicon = [self._lexicon_mapper(entry) for entry in entries]
         return lexicon
