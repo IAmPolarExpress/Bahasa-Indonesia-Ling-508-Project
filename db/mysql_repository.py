@@ -81,7 +81,8 @@ class MySQLRepository(Repository):
         ## already added:
         lexical_entry = LexicalEntry(id = entry['id'],
                                      written_form = entry['written_form'],
-                                     origin = entry['origin'],
+                                     origin = OriginLanguage[(entry['origin'])],
+                                     #origin = OriginLanguage(4),
                                      surface_IPA = entry['surface_IPA'],
                                      #senses = [self._map_sense(sense_number) for sense_number in entry(senses)],
                                      #senses = self.senses_list,
