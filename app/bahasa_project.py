@@ -76,10 +76,15 @@ class LexicalEntry:
         print("self.surface_simple = " + str(self.surface_simple) + "\nother.surface_simple = " \
               + str(other.surface_simple) + "\nResult of \"self.surface_simple == other.surface_simple\" = " \
               + str(self.surface_simple == other.surface_simple) + "\n")
+        ## senses
+        print("self.senses = " + str(self.senses) + "\nother.senses = " \
+              + str(other.senses) + "\nResult of \"self.senses == other.senses\" = " \
+              + str(self.senses == other.senses) + "\n")
         ## DEBUG - END
 
         return self.written_form == other.written_form and self.origin == other.origin and \
-            self.surface_IPA == other.surface_IPA and self.surface_simple == other.surface_simple
+            self.surface_IPA == other.surface_IPA and self.surface_simple == other.surface_simple and \
+            self.senses == other.senses
 
     def get_surface_simple(self):
         """Uses the IPA to check for present 'e' or 'ə' characters and overwrites the
