@@ -51,5 +51,6 @@ def test_SQL_import():
                                   #surface_IPA="ˈlakilaki", \
                                   surface_IPA="test", \
                                   senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
-                                  surface_simple="laki-laki")
+                                  #surface_simple="laki-laki")
+                                  surface_simple="test2")
     assert laki_laki_test in test_lexicon
