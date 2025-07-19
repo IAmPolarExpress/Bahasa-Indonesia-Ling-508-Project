@@ -29,6 +29,12 @@ class Sense:
         self.pos = pos
         self.definition = definition
 
+    def __eq__(self, other):
+        return self.pos == other.pos and self.definition == other.definition
+    # return self.id == other.id and self.written_form == other.written_form and \
+    #    self.origin == other.origin and self.senses == other.senses and \
+    #    self.surface_IPA == other.surface_IPA and self.surface_simple == other.surface_simple
+
     #def print_sense(self):
     #    return "pos = " + str(self.pos) + "\ndefinition = " + str(self.definition)
 
