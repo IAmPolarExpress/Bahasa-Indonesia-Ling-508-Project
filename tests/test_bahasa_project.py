@@ -48,9 +48,9 @@ def test_SQL_import():
     laki_laki_test = LexicalEntry(id=0, \
                                   written_form="laki-laki", \
                                   origin=OriginLanguage.MALAY, \
-                                  #surface_IPA="ˈlakilaki", \
-                                  surface_IPA="test", \
+                                  surface_IPA="ˈlakilaki", \
+                                  #surface_IPA="test", \
                                   senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
-                                  #surface_simple="laki-laki")
-                                  surface_simple="test2")
+                                  surface_simple="laki-laki")
+                                  #surface_simple="test2")
     assert laki_laki_test in test_lexicon
