@@ -35,6 +35,9 @@ class Sense:
     #    self.origin == other.origin and self.senses == other.senses and \
     #    self.surface_IPA == other.surface_IPA and self.surface_simple == other.surface_simple
 
+    def __repr__(self):
+        return("pos=" + str(self.pos) + ", definition=" + str(self.definition))
+
     #def print_sense(self):
     #    return "pos = " + str(self.pos) + "\ndefinition = " + str(self.definition)
 
