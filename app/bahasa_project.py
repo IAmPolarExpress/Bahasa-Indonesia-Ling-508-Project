@@ -29,12 +29,21 @@ class Sense:
         self.pos = pos
         self.definition = definition
 
+    def __eq__(self, other):
+        return self.pos == other.pos and self.definition == other.definition
+    # return self.id == other.id and self.written_form == other.written_form and \
+    #    self.origin == other.origin and self.senses == other.senses and \
+    #    self.surface_IPA == other.surface_IPA and self.surface_simple == other.surface_simple
+
+    def __repr__(self):
+        return("pos=" + str(self.pos) + ", definition=" + str(self.definition))
+
     #def print_sense(self):
     #    return "pos = " + str(self.pos) + "\ndefinition = " + str(self.definition)
 
 class LexicalEntry:
 
-    def __init__(self, written_form: str, origin: OriginLanguage, surface_IPA: str, \
+    def __init__(self, id: str, written_form: str, origin: OriginLanguage, surface_IPA: str, \
                  senses: [Sense]=[], surface_simple: str="NULL"):
         """Uses the input to create the chosen LexicalEntry:
         
@@ -42,6 +51,7 @@ class LexicalEntry:
         by default so that the simple output can be determined using the
         'get_surface_simple()' function below."""
         ## Defines the values:
+        self.id = id
         self.written_form = written_form
         self.origin = origin
         self.senses = senses
@@ -50,6 +60,40 @@ class LexicalEntry:
             self.surface_simple = surface_simple
         else:
             self.surface_simple = self.get_surface_simple()
+
+    def __eq__(self, other):
+        #return self.id == other.id and self.written_form == other.written_form and \
+        #    self.origin == other.origin and self.senses == other.senses and \
+        #    self.surface_IPA == other.surface_IPA and self.surface_simple == other.surface_simple
+
+        ## DEBUG - START
+        ## id
+        print("self.id = " + str(self.id) + "\nother.id = " + str(other.id) + "\n[Not compared]\n")
+        ## written_form
+        print("self.written_form = " + str(self.written_form) + "\nother.written_form = " \
+              + str(other.written_form) + "\nResult of \"self.written_form == other.written_form\" = " \
+              + str(self.written_form == other.written_form) + "\n")
+        ## origin
+        print("self.origin = " + str(self.origin) + "\nother.origin = " \
+              + str(other.origin) + "\nResult of \"self.origin == other.origin\" = " \
+              + str(self.origin == other.origin) + "\n")
+        ## surface_IPA
+        print("self.surface_IPA = " + str(self.surface_IPA) + "\nother.surface_IPA = " \
+              + str(other.surface_IPA) + "\nResult of \"self.surface_IPA == other.surface_IPA\" = " \
+              + str(self.surface_IPA == other.surface_IPA) + "\n")
+        ## surface_simple
+        print("self.surface_simple = " + str(self.surface_simple) + "\nother.surface_simple = " \
+              + str(other.surface_simple) + "\nResult of \"self.surface_simple == other.surface_simple\" = " \
+              + str(self.surface_simple == other.surface_simple) + "\n")
+        ## senses
+        print("self.senses = " + str(self.senses) + "\nother.senses = " \
+              + str(other.senses) + "\nResult of \"self.senses == other.senses\" = " \
+              + str(self.senses == other.senses) + "\n")
+        ## DEBUG - END
+
+        return self.written_form == other.written_form and self.origin == other.origin and \
+            self.surface_IPA == other.surface_IPA and self.surface_simple == other.surface_simple and \
+            self.senses == other.senses
 
     def get_surface_simple(self):
         """Uses the IPA to check for present 'e' or 'ə' characters and overwrites the

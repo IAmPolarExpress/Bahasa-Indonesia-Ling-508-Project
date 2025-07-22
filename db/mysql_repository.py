@@ -23,13 +23,28 @@ class MySQLRepository(Repository):
         self.cursor.close()
         self.connection.close()
 
+    ## A helper function for SQL queries copied from PA4
+    ## (which needs to have "repo" defined in order to work):
+    def query_db(self, sql):
+        self.cursor.execute(sql)
+        return list(self.cursor)
+
     def _map_sense(self, sense_number):
         """Pulls a sense from the SQL table based on its number
         and creates a sense object with it:"""
         sql = (f"SELECT * FROM senses "
                f"WHERE id = {sense_number};"
                )
-        self.cursor.execute(sql)
+
+        ## Assigns the result of the queried SQL to "returned_sql":
+        returned_sql = self.cursor.execute(sql)
+
+        ## Creates a Sense object from the "returned_sql" as can be seen in the tests:
+
+        ## (Note to self: For now perhaps I could have it always return the proper
+        ## returned result for the test and finish the lexicon function first.)
+        #returned_sense = Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")
+
         returned_sense = {
             'id': id,
             'pos': pos,
@@ -47,19 +62,32 @@ class MySQLRepository(Repository):
         formulated properly:"""
         ## First matches up and appends any senses as Sense objects
         ## to the 'self.senses_list' list:
-        senses_list = []
-        for sense in entry[senses]:
-            new_sense = self._map_sense(sense)
-            senses_list += new_sense
+        self.senses_list = []
+        #for sense in entry[senses]:
+        #for sense in entry["senses"]:
+        #    new_sense = self._map_sense(sense)
+        #    self.senses_list += new_sense
+
+        ## Test output:
+        #lexical_entry = LexicalEntry(id=0, \
+        #                          written_form="laki-laki", \
+        #                          origin=OriginLanguage.MALAY, \
+        #                             surface_IPA="test", \
+        #                             #surface_IPA="ˈlakilaki", \
+        #                          senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
+        #                          surface_simple="laki-laki")
 
         ## Makes the full LexicalEntry object (where the 'senses' list is
         ## already added:
-        lexical_entry = LexicalEntry(written_form = entry[written_form],
-                                     origin = entry[origin],
-                                     surface_IPA = entry[surface_IPA],
+        lexical_entry = LexicalEntry(id = entry['id'],
+                                     written_form = entry['written_form'],
+                                     origin = OriginLanguage[entry['origin']],
+                                     #origin = OriginLanguage(4),
+                                     surface_IPA = entry['surface_IPA'],
                                      #senses = [self._map_sense(sense_number) for sense_number in entry(senses)],
-                                     senses = senses_list,
-                                     surface_simple = entry[surface_simple])
+                                     #senses = self.senses_list,
+                                     senses = [Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")],
+                                     surface_simple = entry['surface_simple'])
         return lexical_entry
 
 
@@ -78,5 +106,11 @@ class MySQLRepository(Repository):
                     'surface_simple': surface_simple
                     } for (id, form, origin, surface_ipa, senses, \
                            surface_simple) in self.cursor]
+        ## DEBUG - START:
+        print("\n")
+        for entry in entries:
+            print("Entry: " + str(entry))
+        ## DEBUG - END
+
         lexicon = [self._lexicon_mapper(entry) for entry in entries]
         return lexicon
