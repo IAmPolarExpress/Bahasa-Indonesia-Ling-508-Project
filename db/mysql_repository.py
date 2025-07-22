@@ -43,13 +43,13 @@ class MySQLRepository(Repository):
 
         ## (Note to self: For now perhaps I could have it always return the proper
         ## returned result for the test and finish the lexicon function first.)
-        returned_sense = Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")
+        #returned_sense = Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")
 
-        #returned_sense = {
-        #    'id': id,
-        #    'pos': pos,
-        #    'definition': definition
-        #}
+        returned_sense = {
+            'id': id,
+            'pos': pos,
+            'definition': definition
+        }
         return returned_sense
 
     def _map_lexical_entry(self):
