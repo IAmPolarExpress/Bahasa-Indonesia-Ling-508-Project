@@ -5,3 +5,4 @@ venv310/
 app/__pycache__
 db/__pycache__
 tests/__pycache__
+notes.md
