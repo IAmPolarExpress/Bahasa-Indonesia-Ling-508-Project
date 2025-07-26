@@ -11,7 +11,8 @@ class WordServices:
 
     ## Init code shamelessly ripped off from the course Sanskrit code :)
     def __init__(self):
-        self.repo = db.mysql_repository.MysqlRepository()
+        #self.repo = db.mysql_repository.MysqlRepository()
+        self.repo = MySQLRepository
         #self.word = word
 
         ### Uses '_load_lexicon' to load the lexicon from the SQL server:

@@ -59,11 +59,14 @@ def test_SQL_import():
 
 def test_service_layer_word_origin():
     ## Word "untuk" should return origin "MALAY":
-    word_service = app.services.WordServices()
+    untuktest = app.services.WordServices()
+    untuktestresult = untuktest.find_word_origin("untuk")
+    assert untuktestresult == OriginLanguage.MALAY
+
     #print("word_service = " + str(word_service))
-    untuk_test = word_service.find_word_origin("untuk")
+    #untuk_test = word_service.find_word_origin("untuk")
     #print("untuk_test = " + str(untuk_test))
-    assert untuk_test == OriginLanguage.MALAY
+    #assert untuk_test == OriginLanguage.MALAY
 
     #word_service = app.services.WordServices()
     #assert word_service().find_word_origin(word="untuk") == OriginLanguage.MALAY
