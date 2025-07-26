@@ -59,5 +59,15 @@ def test_SQL_import():
 
 def test_service_layer_word_origin():
     ## Word "untuk" should return origin "MALAY":
-    service = app.services.Services
-    assert service.find_word_origin("untuk") == OriginLanguage.MALAY
+    word_service = app.services.WordServices()
+    #print("word_service = " + str(word_service))
+    untuk_test = word_service.find_word_origin("untuk")
+    #print("untuk_test = " + str(untuk_test))
+    assert untuk_test == OriginLanguage.MALAY
+
+    #word_service = app.services.WordServices()
+    #assert word_service().find_word_origin(word="untuk") == OriginLanguage.MALAY
+
+def test_service_layer_word_details():
+    ## Returns all major implemented word details using the "find_word_details()" method, minus the syllable method:
+    raise NotImplementedError

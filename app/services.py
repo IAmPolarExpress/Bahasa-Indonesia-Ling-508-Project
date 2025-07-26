@@ -7,40 +7,42 @@
 
 from db.mysql_repository import *
 
-class Services:
+class WordServices:
 
     ## Init code shamelessly ripped off from the course Sanskrit code :)
     def __init__(self):
         self.repo = db.mysql_repository.MysqlRepository()
+        #self.word = word
 
         ### Uses '_load_lexicon' to load the lexicon from the SQL server:
         #repo = MySQLRepository()
         #test_lexicon = repo._load_lexicon()
 
     ### MASTER CALL FOR ALL IMPLEMENTED WORD DETAILS ###
-    def find_word_details(self, word):
+    def find_word_details(self, word: str):
         ## Returns all implemented word details methods from the Services layer
         raise NotImplementedError
 
     ### USE CASE 1: Returns word class (verb, noun, etc. in the form of text) ###
-    def find_word_class(self, word):
+    def find_word_class(self, word: str) -> PartOfSpeech:
         raise NotImplementedError
 
     ### USE CASE 2: Returns a syllabic breakdown of the word ###
-    def find_syllables(self, word):
+    def find_syllables(self, word: str):
         ## This is not yet coded into my system, and I may remove this feature before finishing the project, although
         ## it was one of my original goals.  Even if I do remove it, I would like to add it later, so I am going to
         ## leave this here for the future.
         raise NotImplementedError
 
     ### USE CASE 3: Returns the simplified surface form, which replaces "e" with a schwa based on the IPA spelling ###
-    def find_surface_simple(self, word):
+    def find_surface_simple(self, word: str) -> str:
         raise NotImplementedError
 
     ### USE CASE 3.5: Returns the IPA form of the word (which is what I shifted towards after I started to replace USE CASE 2 ###
-    def find_IPA(self, word):
+    def find_IPA(self, word: str) -> str:
         raise NotImplementedError
 
     ### USE CASE 4: Returns the origin of the word entered ###
-    def find_word_origin(self, word):
-        raise NotImplementedError
+    def find_word_origin(self, word: str) -> OriginLanguage:
+        print(word)
+        return OriginLanguage.MALAY
