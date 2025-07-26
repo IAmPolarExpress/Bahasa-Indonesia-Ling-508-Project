@@ -1,5 +1,6 @@
 #from app.bahasa_project import * # This is now imported already from db.mysql_repository.py
 #from db.mysql_repository import * # This is now imported already from app.services
+import app.services
 from app.services import *
 import pytest
 
@@ -57,4 +58,6 @@ def test_SQL_import():
     assert laki_laki_test in test_lexicon
 
 def test_service_layer_word_origin():
-    pass
+    ## Word "untuk" should return origin "MALAY":
+    service = app.services.Services
+    assert service.find_word_origin("untuk") == OriginLanguage.MALAY
