@@ -54,3 +54,6 @@ def test_SQL_import():
                                   surface_simple="laki-laki")
                                   #surface_simple="test2")
     assert laki_laki_test in test_lexicon
+
+def test_service_layer_word_origin():
+    pass
