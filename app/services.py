@@ -5,7 +5,7 @@
 ## Sanskrit course demo could help here too:
 ## https://github.com/jjberry-508/sanskrit-508/blob/week5/app/services.py
 
-import db.mysql_repository
+from db.mysql_repository import *
 
 class Services:
 
@@ -13,9 +13,14 @@ class Services:
     def __init__(self):
         self.repo = db.mysql_repository.MysqlRepository()
 
+        ### Uses '_load_lexicon' to load the lexicon from the SQL server:
+        #repo = MySQLRepository()
+        #test_lexicon = repo._load_lexicon()
+
     ### MASTER CALL FOR ALL IMPLEMENTED WORD DETAILS ###
     def find_word_details(self, word):
         ## Returns all implemented word details methods from the Services layer
+        raise NotImplementedError
 
     ### USE CASE 1: Returns word class (verb, noun, etc. in the form of text) ###
     def find_word_class(self, word):

@@ -1,5 +1,6 @@
 #from app.bahasa_project import * # This is now imported already from db.mysql_repository.py
-from db.mysql_repository import *
+#from db.mysql_repository import * # This is now imported already from app.services
+from app.services import *
 import pytest
 
 def test_easy_wins():
