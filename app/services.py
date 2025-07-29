@@ -12,7 +12,13 @@ class WordServices:
     ## Init code shamelessly ripped off from the course Sanskrit code :)
     def __init__(self):
         #self.repo = db.mysql_repository.MysqlRepository()
-        self.repo = MySQLRepository
+        ## Sets the repo to use MySQLRepository
+        self.workingrepo = MySQLRepository
+
+        ## Sets up the working_lexicon using the MySQLRepository's "_load_lexicon()" feature:
+        self.working_lexicon = self.workingrepo()._load_lexicon()
+        print(self.working_lexicon)
+
         #self.word = word
 
         ### Uses '_load_lexicon' to load the lexicon from the SQL server:
@@ -22,7 +28,7 @@ class WordServices:
     ### MASTER CALL FOR ALL IMPLEMENTED WORD DETAILS ###
     def find_word_details(self, word: str):
         ## Returns all implemented word details methods from the Services layer
-        raise NotImplementedError
+        return [self.find_surface_simple(word),self.find_IPA(word),self.find_word_origin(word)]
 
     ### USE CASE 1: Returns word class (verb, noun, etc. in the form of text) ###
     def find_word_class(self, word: str) -> PartOfSpeech:
@@ -37,13 +43,36 @@ class WordServices:
 
     ### USE CASE 3: Returns the simplified surface form, which replaces "e" with a schwa based on the IPA spelling ###
     def find_surface_simple(self, word: str) -> str:
-        raise NotImplementedError
+        for entry in self.working_lexicon:
+            if entry.written_form == word:
+                return entry.surface_simple
 
     ### USE CASE 3.5: Returns the IPA form of the word (which is what I shifted towards after I started to replace USE CASE 2 ###
     def find_IPA(self, word: str) -> str:
-        raise NotImplementedError
+        for entry in self.working_lexicon:
+            if entry.written_form == word:
+                return entry.surface_IPA
 
     ### USE CASE 4: Returns the origin of the word entered ###
     def find_word_origin(self, word: str) -> OriginLanguage:
-        print(word)
-        return OriginLanguage.MALAY
+        ## Prints the current word being used for debug purposes:
+        print("current word = " + str(word))
+        ## Takes the list of LexicalEntries in the Lexicon and returns the OriginLanguage of the matching string or
+        ## returns an error if the word is not in the Lexicon:
+
+        ## DEBUG TO ENSURE __INIT__ DEFINED THINGS CORRECTLY - START
+        #laki_laki_test = LexicalEntry(id=0, \
+        #                              written_form="laki-laki", \
+        #                              origin=OriginLanguage.MALAY, \
+        #                              surface_IPA="ˈlakilaki", \
+        #                              # surface_IPA="test", \
+        #                              senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
+        #                              surface_simple="laki-laki")
+        #assert laki_laki_test in self.working_lexicon
+        ## DEBUG TO ENSURE __INIT DEFINED THINGS CORRECTLY - END
+
+        for entry in self.working_lexicon:
+            if entry.written_form == word:
+                return entry.origin
+
+        #return OriginLanguage.MALAY
