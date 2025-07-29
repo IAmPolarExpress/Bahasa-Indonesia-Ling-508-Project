@@ -58,24 +58,15 @@ def test_SQL_import():
     assert laki_laki_test in test_lexicon
 
 def test_service_layer_word_origin():
-    ## Uses LexiconLoader():
-
-
     ## Word "untuk" should return origin "MALAY":
     untuktest = app.services.WordServices()
     untuktestresult = untuktest.find_word_origin("untuk")
     assert untuktestresult == OriginLanguage.MALAY
 
-    #print("word_service = " + str(word_service))
-    #untuk_test = word_service.find_word_origin("untuk")
-    #print("untuk_test = " + str(untuk_test))
-    #assert untuk_test == OriginLanguage.MALAY
-
-    #word_service = app.services.WordServices()
-    #assert word_service().find_word_origin(word="untuk") == OriginLanguage.MALAY
-
 def test_service_layer_word_details():
     ## Returns all currently implemented word details in list form using the "find_word_details()" method:
+    ##
+    ## NOTE: This test will need to be updated as I improve and revise the "find_word_details()" method!
     belajartest = app.services.WordServices()
     belajartestresult = belajartest.find_word_details("belajar")
     assert belajartestresult == ["bəlajar","bəˈladʒar",OriginLanguage.MALAY]

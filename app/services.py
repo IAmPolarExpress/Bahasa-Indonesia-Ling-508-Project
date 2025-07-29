@@ -11,19 +11,12 @@ class WordServices:
 
     ## Init code shamelessly ripped off from the course Sanskrit code :)
     def __init__(self):
-        #self.repo = db.mysql_repository.MysqlRepository()
         ## Sets the repo to use MySQLRepository
         self.workingrepo = MySQLRepository
 
         ## Sets up the working_lexicon using the MySQLRepository's "_load_lexicon()" feature:
         self.working_lexicon = self.workingrepo()._load_lexicon()
         print(self.working_lexicon)
-
-        #self.word = word
-
-        ### Uses '_load_lexicon' to load the lexicon from the SQL server:
-        #repo = MySQLRepository()
-        #test_lexicon = repo._load_lexicon()
 
     ### MASTER CALL FOR ALL IMPLEMENTED WORD DETAILS ###
     def find_word_details(self, word: str):
@@ -59,20 +52,6 @@ class WordServices:
         print("current word = " + str(word))
         ## Takes the list of LexicalEntries in the Lexicon and returns the OriginLanguage of the matching string or
         ## returns an error if the word is not in the Lexicon:
-
-        ## DEBUG TO ENSURE __INIT__ DEFINED THINGS CORRECTLY - START
-        #laki_laki_test = LexicalEntry(id=0, \
-        #                              written_form="laki-laki", \
-        #                              origin=OriginLanguage.MALAY, \
-        #                              surface_IPA="ˈlakilaki", \
-        #                              # surface_IPA="test", \
-        #                              senses=[Sense(pos=PartOfSpeech.ADJECTIVE, definition="male")], \
-        #                              surface_simple="laki-laki")
-        #assert laki_laki_test in self.working_lexicon
-        ## DEBUG TO ENSURE __INIT DEFINED THINGS CORRECTLY - END
-
         for entry in self.working_lexicon:
             if entry.written_form == word:
                 return entry.origin
-
-        #return OriginLanguage.MALAY
