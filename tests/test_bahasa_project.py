@@ -38,7 +38,7 @@ def test_SQL_import():
     initialized:"""
     ## Uses '_load_lexicon' to load the lexicon from the SQL server:
     repo = MySQLRepository()
-    test_lexicon = repo._load_lexicon()
+    test_lexicon = repo.load_lexicon()
 
     ## Asserts that there are more than zero entries in the lexicon:
     assert len(test_lexicon) >= 1

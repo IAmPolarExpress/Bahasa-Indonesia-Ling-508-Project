@@ -15,7 +15,7 @@ class WordServices:
         self.workingrepo = MySQLRepository
 
         ## Sets up the working_lexicon using the MySQLRepository's "_load_lexicon()" feature:
-        self.working_lexicon = self.workingrepo()._load_lexicon()
+        self.working_lexicon = self.workingrepo().load_lexicon()
         print(self.working_lexicon)
 
     ### MASTER CALL FOR ALL IMPLEMENTED WORD DETAILS ###

@@ -92,7 +92,7 @@ class MySQLRepository(Repository):
 
 
 
-    def _load_lexicon(self) -> list[LexicalEntry]:
+    def load_lexicon(self) -> list[LexicalEntry]:
         """Pulls data from the SQL database and converts it to a list of
         LexicalEntry classes by making requests to the 'mapper()' method:"""
         sql = 'SELECT * FROM lexicon'
