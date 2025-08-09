@@ -4,6 +4,9 @@ import pytest
 
 #### NOTE: THIS TEST FILE IS NOT CURRENTLY WORKING PROPERLY - AND IT IS PASSING ALL TESTS WHEN IT SHOULD NOT BE
 
+### Commenting this file out due to its non-functionality:
+"""
+
 ## Hangs the fixtures to make the room look nicer /s
 @pytest.fixture
 def client():
@@ -26,3 +29,5 @@ def test_flask_integration():
         #else:
         #    print("It didn't work!")
         #assert response.get("msg") == "OK"
+
+"""
