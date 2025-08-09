@@ -71,9 +71,11 @@ def word_detail_getter():
         app.logger.info("/get_word_details - word_to_analyze = " + str(word_to_analyze))
         result = services.find_word_details(word_to_analyze)
         app.logger.info("/get_word_details - result of 'services.find_word_details(word_to_analyze)':\n" + str(result))
-
-
-        return "Meap!"
+        ## If the word does not exist in the database, all of its list entries will be None:
+        if result[0] is None:
+            return '("msg": "word not in database"}'
+        else:
+            return jsonify(result)
     else:
         return '{"msg": "epic fail"}'
 
