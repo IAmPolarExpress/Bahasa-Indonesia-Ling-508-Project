@@ -89,4 +89,6 @@ def word_detail_getter():
 #    app.logger.info("/generate - Generated words.")
 #    return jsonify({"msg": "success"})
 
-
+## Starts up the Flask server
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
