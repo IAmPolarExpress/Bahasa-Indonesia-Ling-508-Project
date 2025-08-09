@@ -7,7 +7,7 @@ from logging.config import dictConfig
 
 ## Imports from app.services.py:
 #from app.services import *
-#from app.services import WordServices
+from app.services import WordServices
 #from services import WordServices
 
 
@@ -35,7 +35,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={r"/parse": {"origins": "http://localhost:port"}})
 
 ## Calls the WordServices() function under "services" here:
-#services = WordServices()
+services = WordServices()
 #services = services.WordServices()
 
 

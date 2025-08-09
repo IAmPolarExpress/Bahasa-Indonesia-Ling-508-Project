@@ -7,6 +7,8 @@ services:
         condition: service_healthy
     links:
       - db
+    ports:
+      - "5000:5000"
 
   db:
     image: mysql:9.0.1
