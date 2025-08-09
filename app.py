@@ -75,7 +75,9 @@ def word_detail_getter():
         if result[0] is None:
             return '("msg": "word not in database"}'
         else:
-            return jsonify(result)
+            ## Converts each item in the original list to a string for compatibility reasons - and returns the list:
+            result_list = [str(item) for item in result]
+            return jsonify(result_list)
     else:
         return '{"msg": "epic fail"}'
 
