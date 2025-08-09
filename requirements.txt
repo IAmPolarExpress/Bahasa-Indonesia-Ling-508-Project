@@ -1,4 +1,5 @@
 pytest
 mysql-connector-python~=9.0.0
-flask
-flask-cors
+flask~=3.1.1
+flask-cors~=6.0.1
+logging
