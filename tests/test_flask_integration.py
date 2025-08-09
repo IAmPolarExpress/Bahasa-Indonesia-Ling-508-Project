@@ -1,7 +1,6 @@
 ## Tests the Flask integration into the project, similar to how Programming Assignment 6 did so:
 import pytest
-import json
-from app.app import *
+
 
 #### NOTE: I CAN ALSO TEST THINGS MANUALLY
 

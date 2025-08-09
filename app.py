@@ -10,6 +10,8 @@ from logging.config import dictConfig
 #from app.services import WordServices
 #from services import WordServices
 
+
+
 ## More shamelessly ripped off code from the course examples, per official recommendation:
 dictConfig({
     'version': 1,
@@ -34,6 +36,7 @@ cors = CORS(app, resources={r"/parse": {"origins": "http://localhost:port"}})
 
 ## Calls the WordServices() function under "services" here:
 #services = WordServices()
+#services = services.WordServices()
 
 
 
