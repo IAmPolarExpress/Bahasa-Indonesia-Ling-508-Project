@@ -40,7 +40,7 @@ services = WordServices()
 
 
 
-
+## I could use this if I add documentation like in the Sanskrit demo:
 @app.route('/')
 def doc() -> str:
     app.logger.info("doc - Got request")
@@ -60,8 +60,19 @@ def runner_of_the_flask():
 def word_detail_getter():
     ## Takes bahasa Indonesia word input and returns a list of displayable word details:
     bahasa_word_data = request.get_json()
-    print("bahasa_word_data = " + str(bahasa_word_data))
+    #print("bahasa_word_data = " + str(bahasa_word_data))
+    app.logger.info("/get_word_details - bahasa_word_data = " + str(bahasa_word_data) + ".")
     if bahasa_word_data:
+        ## Checks if the word exists in list of words in the database, then returns Jsonified word details if it exists,
+        ## but returns an error message if the word is not in the database:
+        ##
+        ## The post request should be sent as "data='WORD'":
+        word_to_analyze = bahasa_word_data["data"]
+        app.logger.info("/get_word_details - word_to_analyze = " + str(word_to_analyze))
+        result = services.find_word_details(word_to_analyze)
+        app.logger.info("/get_word_details - result of 'services.find_word_details(word_to_analyze)':\n" + str(result))
+
+
         return "Meap!"
     else:
         return '{"msg": "epic fail"}'
