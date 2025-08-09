@@ -1,2 +1,4 @@
 pytest
 mysql-connector-python~=9.0.0
+flask
+flask-cors
