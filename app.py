@@ -6,8 +6,8 @@ from flask_cors import CORS, cross_origin
 from logging.config import dictConfig
 
 ## Imports from app.services.py:
-#from app.services import *
-from app.services import WordServices
+from app.services import *
+#from app.services import WordServices
 #from services import WordServices
 
 
