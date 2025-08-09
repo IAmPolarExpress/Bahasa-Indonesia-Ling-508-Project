@@ -2,7 +2,7 @@
 import pytest
 
 
-#### NOTE: I CAN ALSO TEST THINGS MANUALLY
+#### NOTE: THIS TEST FILE IS NOT CURRENTLY WORKING PROPERLY - AND IT IS PASSING ALL TESTS WHEN IT SHOULD NOT BE
 
 ## Hangs the fixtures to make the room look nicer /s
 @pytest.fixture
