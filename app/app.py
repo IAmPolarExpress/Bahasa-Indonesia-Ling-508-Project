@@ -7,7 +7,8 @@ from logging.config import dictConfig
 
 ## Imports from app.services.py:
 #from app.services import *
-from app.services import WordServices
+#from app.services import WordServices
+#from services import WordServices
 
 ## More shamelessly ripped off code from the course examples, per official recommendation:
 dictConfig({
@@ -32,7 +33,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={r"/parse": {"origins": "http://localhost:port"}})
 
 ## Calls the WordServices() function under "services" here:
-services = WordServices()
+#services = WordServices()
 
 
 
@@ -45,7 +46,7 @@ def doc() -> str:
 
 ## Returns a simple "OK" message to test if the Flask integration is working for my bahasa project:
 @app.route("/test_flask", methods=["GET"])
-def tester_of_the_flask():
+def runner_of_the_flask():
     app.logger.info("/test_flask - Tested Flask integration.")
     #return jsonify({"msg": "OK"})
     return "OK"
