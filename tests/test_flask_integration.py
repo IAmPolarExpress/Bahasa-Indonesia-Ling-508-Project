@@ -15,10 +15,13 @@ def client():
 def test_flask_integration():
     ## Makes a call to a simple Flask test function that returns a basic "OK" message:
     def test_hello(client):
-        """1,000,000-point test"""
+        rv = client.get('/test_flask')
+        assert b"NOT EVEN REMOTELY ALRIGHT" in rv.data
         #rv = client.get('/test_flask')
-        assert rv == "OK"
+        ##DOES NOT WORK ---> assert rv == "OK"
         #response = json.loads(rv.data)
+        #print("response = " + str(response))
+        ##ssert 4 == 8
         #if response.get("msg") == "OK":
         #    print("It worked!")
         #else:
