@@ -26,6 +26,7 @@ class WordServices:
 
     ### USE CASE 1: Returns word class (verb, noun, etc. in the form of text) ###
     def find_word_class(self, word: str) -> PartOfSpeech:
+        ## This is a part of the list of Senses that are returned.
         raise NotImplementedError
 
     ### USE CASE 2: Returns a syllabic breakdown of the word ###
