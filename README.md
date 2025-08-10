@@ -13,7 +13,7 @@ Additionally, it currently only returns the following unlabeled details:
 
 Clone the project onto your device using ```git clone``` and then use ```docker-compose up``` from the corresponding directory.  (If you want to, you can even open up the project to view the source code yourself in an IDE like PyCharm!)  Once the Docker containers are running, you can make http requests to it in order to pull up information on the word of your choosing.
 
-There are currently two commands that can be executed on port 5000.  I have them listed as with example [httpie](httpie.org) commands for reference:
+There are currently two commands that can be executed on port 5000.  I have them listed as with example [httpie](www.httpie.org) commands for reference:
 * test_flask: This is a GET command which will confirm that the Flask container is working.  Example: ```http GET localhost:5000/test_flask```
 * get_word_details: This is a POST command which will let you request details on a word in bahasa.  Example: ```http POST localhost:/get_word_details data="belajar"```
 
