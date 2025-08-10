@@ -42,5 +42,24 @@ It is possible to send a request on a word that does not exist in the database, 
 The output you will get in that case is this:
 ```("msg": "word not in database"}```
 
+# *Using the HTML Page*
 
+## Opening ```bahasa.html```:
+
+Included in this project is a simple HTML page that you can open in your preferred web browser, like Mozilla Firefox or Google Chrome!  It is located in the ```web/bahasa.html``` directory.  Most operating systems will allow you to launch it by double-clicking the file within your file explorer.
+
+Please note that you will still need to start up the docker containers, as listed above, before utilizing the webpage.
+
+Once the webpage is open, you can type the word that you want to look up and it will return details on it after you click submit.
+
+For example, you might type ```belajar``` and in the dedicated output portion of the webpage it will return:
+```
+[
+    "bəlajar",
+    "bəˈladʒar",
+    "OriginLanguage.MALAY"
+]
+```
+
+This makes it an even more convenient way to do searches than utilizing the API for many people!
 
