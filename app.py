@@ -67,7 +67,7 @@ def word_detail_getter():
         ## but returns an error message if the word is not in the database:
         ##
         ## The post request should be sent as "data='WORD'":
-        word_to_analyze = bahasa_word_data["data"]
+        word_to_analyze = bahasa_word_data["word"]
         app.logger.info("/get_word_details - word_to_analyze = " + str(word_to_analyze))
         result = services.find_word_details(word_to_analyze)
         app.logger.info("/get_word_details - result of 'services.find_word_details(word_to_analyze)':\n" + str(result))
