@@ -40,7 +40,7 @@ It is possible to send a request on a word that does not exist in the database, 
 ```http POST localhost:/get_word_details word="supercalifragilisticexpialidocious"```
 
 The output you will get in that case is this:
-```("msg": "word not in database"}```
+```word not in database```
 
 # *Using the HTML Page*
 
@@ -60,6 +60,8 @@ For example, you might type ```belajar``` and in the dedicated output portion of
     "OriginLanguage.MALAY"
 ]
 ```
+
+(It will also return an identical error to the API method if a word does not exist in the database.)
 
 This makes it an even more convenient way to do searches than utilizing the API for many people!
 
