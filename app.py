@@ -7,8 +7,6 @@ from logging.config import dictConfig
 
 ## Imports from app.services.py:
 from app.services import *
-#from app.services import WordServices
-#from services import WordServices
 
 
 
@@ -36,7 +34,6 @@ cors = CORS(app, resources={r"/parse": {"origins": "http://localhost:port"}})
 
 ## Calls the WordServices() function under "services" here:
 services = WordServices()
-#services = services.WordServices()
 
 
 
@@ -60,7 +57,6 @@ def runner_of_the_flask():
 def word_detail_getter():
     ## Takes bahasa Indonesia word input and returns a list of displayable word details:
     bahasa_word_data = request.get_json()
-    #print("bahasa_word_data = " + str(bahasa_word_data))
     app.logger.info("/get_word_details - bahasa_word_data = " + str(bahasa_word_data) + ".")
     if bahasa_word_data:
         ## Checks if the word exists in list of words in the database, then returns Jsonified word details if it exists,
@@ -80,33 +76,6 @@ def word_detail_getter():
             return jsonify(result_list)
     else:
         return jsonify("epic fail")
-
-        ## Takes JSON input, converts it to a Python dictionary, and assigns it to "jdata":
-        #jdata = request.get_json()
-        #if jdata:
-        #    ## Appends "jdata" to "data" list:
-        #    #print("\n\nimported 'jdata' = " + str(jdata))
-        #    #print("\n'data' list pre-update = " + str(data))
-        #    data.append(jdata)
-        #    #print("\n\nupdated 'data' = " + str(data))
-        #    return '{"msg": "success"}'
-        #else:
-        #    return '{"msg": "failure"}'
-
-#@app.route("/get_word_details", methods=["GET"])
-#def data_get():
-#    ## Returns Jsonified contents of data
-#    json_data = jsonify(data)
-#    #print("\n\nFeel the rhythm, feel the rhyme!  Come on now, it's debug time!\n\ndata:\n" + str(data) + "\n\njson_data:\n" + str(json_data))
-#    return json_data
-
-
-### Example from class code:
-#@app.route("/generate", methods=["GET"])
-#def generate_words():
-#    services.generate_words()
-#    app.logger.info("/generate - Generated words.")
-#    return jsonify({"msg": "success"})
 
 ## Starts up the Flask server
 if __name__ == "__main__":
