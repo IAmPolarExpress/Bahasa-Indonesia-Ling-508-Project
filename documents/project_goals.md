@@ -38,7 +38,7 @@ While I am not necessarily using this as a goal for the purpose of this course a
 
 4. Returns a list of word senses:
       Input: advocaat
-      Output: [noun, lawyer]
+      Output: [[noun, "lawyer"]]
 
 
 
