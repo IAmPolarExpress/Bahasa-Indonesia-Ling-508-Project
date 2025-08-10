@@ -6,6 +6,8 @@ Remember to use ```git clone``` to clone the repository to your local device, th
 
 Everything will run on your local device on port 5000.  So you can make all your http requests on ```localhost:5000```.
 
+# *Direct API Connection Method*
+
 ## Confirming the API was Launched with "test_flask":
 
 If you want to confirm that everything is running properly, you can launch a ```GET``` request using ```test_flask``` to ensure everything is working.  If you get an ```OK``` response, that means that everything is working properly!
