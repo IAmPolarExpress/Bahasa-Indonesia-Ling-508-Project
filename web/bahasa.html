@@ -34,7 +34,7 @@ async function handleSubmit1(event) {
     value.word = data.get("word");
     console.log({value});
 
-    const response = await fetch('http://localhost:5000/parse', {
+    const response = await fetch('http://localhost:5000/get_word_details', {
         method: 'POST',
         body: JSON.stringify(value),
         headers: {
