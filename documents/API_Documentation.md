@@ -8,7 +8,7 @@ Everything will run on your local device on port 5000.  So you can make all your
 
 # *Direct API Connection Method*
 
-## Confirming the API was Launched with "test_flask":
+## Confirming the API was Launched with ```test_flask```:
 
 If you want to confirm that everything is running properly, you can launch a ```GET``` request using ```test_flask``` to ensure everything is working.  If you get an ```OK``` response, that means that everything is working properly!
 
