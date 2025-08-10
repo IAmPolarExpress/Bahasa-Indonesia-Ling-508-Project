@@ -73,13 +73,13 @@ def word_detail_getter():
         app.logger.info("/get_word_details - result of 'services.find_word_details(word_to_analyze)':\n" + str(result))
         ## If the word does not exist in the database, all of its list entries will be None:
         if result[0] is None:
-            return '("msg": "word not in database"}'
+            return jsonify('("msg": "word not in database"}')
         else:
             ## Converts each item in the original list to a string for compatibility reasons - and returns the list:
             result_list = [str(item) for item in result]
             return jsonify(result_list)
     else:
-        return '{"msg": "epic fail"}'
+        return jsonify('{"msg": "epic fail"}')
 
         ## Takes JSON input, converts it to a Python dictionary, and assigns it to "jdata":
         #jdata = request.get_json()
