@@ -6,7 +6,8 @@ import pytest
 
 def test_easy_wins():
     """Gives a motivational boost. If this fails, something is seriously wrong:"""
-    print("\n\n\nYou got this!!!\n         :D\n")
+    print("\n\n\nYou got this!!!\n         :D\n\n\n\n\nNOTE: THESE TESTS WILL ONLY COOPERATE WHEN \
+    'mysql_repository.py' is configured to run locally and you are running 'docker-compose up' from the terminal.\n")
     pass
 
 def test_make_sense():
