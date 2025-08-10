@@ -40,7 +40,7 @@ It is possible to send a request on a word that does not exist in the database, 
 ```http POST localhost:/get_word_details word="supercalifragilisticexpialidocious"```
 
 The output you will get in that case is this:
-```word not in database```
+```"word not in database"```
 
 # *Using the HTML Page*
 
