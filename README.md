@@ -18,7 +18,7 @@ There are currently two commands that can be executed on port 5000.  I have them
 * get_word_details: This is a POST command which will let you request details on a word in bahasa.  Example: ```http POST localhost:/get_word_details data="belajar"```
 
 # *What's next?*
-I plan to expand this project by integrating a full Indonesian word database, improve efficiency by having the SQL calls made on a call-by-call basis rather than having the whole database loaded into memory, and perhaps even make my original word segmentation and phonics goals become a reality, even though I set them aside for other goals for now.
+I plan to expand this project by integrating a full Indonesian word database, improve efficiency by having the SQL calls made on a call-by-call basis rather than having the whole database loaded into memory, and perhaps even make my original word segmentation and phonics goals become a reality, even though I set them aside for other goals for now.  I also consider it essential that I get functionality for multiple word Senses up and running long-term.
 
 The framework for this software is something that I also hope to make more "portable" and able to be adapted for other languages and language types.  Right now, all of the SQL database stuff is "baked in", but I would like to make it more modular.  That is beyond the scope of the course that this project was for, of course, but it is something that I would love to make happen! :)
 
